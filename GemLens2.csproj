@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <PlatformTarget>x64</PlatformTarget>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Version>0.2.2</Version>
+    <DebugType>embedded</DebugType>
+    <PathMap>$(MSBuildProjectDirectory)=GemLens2</PathMap>
+    <exileCore2Package Condition="'$(exileCore2Package)' == ''">..\..\..</exileCore2Package>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExileCore2"><HintPath>$(exileCore2Package)\ExileCore2.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="GameOffsets2"><HintPath>$(exileCore2Package)\GameOffsets2.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="ImGui.NET"><HintPath>$(exileCore2Package)\ImGui.NET.dll</HintPath><Private>false</Private></Reference>
+    <EmbeddedResource Include="Data\gems.json" />
+    <None Update="Data\gems.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
